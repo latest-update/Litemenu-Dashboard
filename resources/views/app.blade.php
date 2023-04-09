@@ -18,9 +18,9 @@
         <div class="container mx-auto max-w-sm">
             <h1 class="text-2xl mb-4 text-center">Dashboard</h1>
             <br>
-            <x-input class="pr-28" label="Login" placeholder="your login" />
+            <x-input class="pr-28" label="Login" value="guest" placeholder="Your login" />
             <br>
-            <x-inputs.password label="Password" value="your password" placeholder="your password"/>
+            <x-inputs.password label="Password" value="guest" placeholder="Your password"/>
             <br>
             <livewire:counter />
         </div>
