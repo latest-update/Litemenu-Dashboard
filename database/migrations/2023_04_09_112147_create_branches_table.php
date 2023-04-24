@@ -15,11 +15,11 @@ return new class extends Migration
             $table->uuid()->primary();
             $table->string('name');
             $table->string('address');
-            $table->uuid('admin_uuid')->nullable();
+            $table->foreignId('admin_id')->nullable();
             $table->uuid('company_uuid')->nullable();
             $table->timestamps();
 
-            $table->foreign('admin_uuid')->references('uuid')->on('users');
+            $table->foreign('admin_id')->references('id')->on('users');
             $table->foreign('company_uuid')->references('uuid')->on('companies');
         });
     }

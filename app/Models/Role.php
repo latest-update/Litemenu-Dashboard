@@ -11,7 +11,8 @@ class Role extends Model
 {
     use HasFactory;
     use HasUuids;
-
+    protected $primaryKey = 'uuid';
+    public $timestamps = false;
     protected $guarded = [];
 
     public function users(): HasMany

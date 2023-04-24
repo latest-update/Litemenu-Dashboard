@@ -1,2 +1,3 @@
 import './bootstrap';
-import './main'
+import './main';
+import.meta.glob(['../images/**'])

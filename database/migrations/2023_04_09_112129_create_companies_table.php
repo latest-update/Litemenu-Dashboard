@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->uuid('owner_uuid');
+            $table->foreignId('owner_id');
             $table->timestamps();
 
-            $table->foreign('owner_uuid')->references('uuid')->on('users');
+            $table->foreign('owner_id')->references('id')->on('users');
         });
     }
 

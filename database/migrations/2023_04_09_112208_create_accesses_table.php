@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('accesses', function (Blueprint $table) {
             $table->id();
             $table->uuid('branch_uuid');
-            $table->uuid('user_uuid');
+            $table->foreignId('user_id');
             $table->timestamps();
 
             $table->foreign('branch_uuid')->references('uuid')->on('branches')->onDelete('cascade');
-            $table->foreign('user_uuid')->references('uuid')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
