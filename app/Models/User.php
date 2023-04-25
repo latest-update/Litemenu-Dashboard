@@ -50,16 +50,16 @@ class User extends Authenticatable
 
     public function company(): HasOne
     {
-        return $this->hasOne(Company::class, 'owner_uuid');
+        return $this->hasOne(Company::class, 'owner_id');
     }
 
     public function branch(): HasOne
     {
-        return $this->hasOne(Branch::class, 'admin_uuid');
+        return $this->hasOne(Branch::class, 'admin_id');
     }
 
     public function access(): HasMany
     {
-        return $this->hasMany(Access::class, 'user_uuid');
+        return $this->hasMany(Access::class, 'user_id');
     }
 }
