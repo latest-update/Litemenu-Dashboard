@@ -2,25 +2,10 @@
 
 namespace App\Http\Livewire\Dashboard;
 
-use Livewire\Component;
+use App\Http\Livewire\Dashboard\Control\DynamicRoutingComponent;
 
-class Home extends Component
+class Home extends DynamicRoutingComponent
 {
-    use RoleConfiguration;
-
-    public string $currentPage = 'Dashboard';
-
-    protected $listeners = ['changePage'];
-
-    public function mount()
-    {
-        $this->currentPage = $this->getDefault();
-    }
-
-    public function changePage ($page)
-    {
-        $this->currentPage = $page;
-    }
 
     public function render()
     {

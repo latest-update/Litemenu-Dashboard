@@ -20,7 +20,7 @@ class Header extends Component
     public function __construct()
     {
         $this->user = auth()->user();
-        $this->companyName = $this->user->company()->first()->name ?? 'Company not found';
+        $this->companyName = $this->user->companies()->first()->name ?? 'Company not found';
         $this->accountVerified = false;
     }
 

@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class Start extends Component
 {
+    public function companies()
+    {
+        return auth()->user()->companies()->get();
+    }
     public function render()
     {
         return view('livewire.dashboard.pages.start');

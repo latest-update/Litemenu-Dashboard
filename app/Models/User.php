@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\PermissionControl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -14,6 +15,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use PermissionControl;
 
     /**
      * The attributes that are mass assignable.
@@ -48,9 +50,9 @@ class User extends Authenticatable
 
     protected $guarded = [];
 
-    public function company(): HasOne
+    public function companies(): HasMany
     {
-        return $this->hasOne(Company::class, 'owner_id');
+        return $this->hasMany(Company::class, 'owner_id');
     }
 
     public function branch(): HasOne

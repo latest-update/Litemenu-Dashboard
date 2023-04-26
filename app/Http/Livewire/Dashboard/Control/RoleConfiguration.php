@@ -1,13 +1,14 @@
 <?php
 
 
-namespace App\Http\Livewire\Dashboard;
+namespace App\Http\Livewire\Dashboard\Control;
 
 
 trait RoleConfiguration
 {
     public array $defaultPage = [
         'guest' => 'Start',
+        'owner' => 'Start',
         'default' => 'Dashboard'
     ];
 

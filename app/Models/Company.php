@@ -12,12 +12,13 @@ class Company extends Model
 {
     use HasFactory;
     use HasUuids;
+    protected $primaryKey = 'uuid';
 
     protected $guarded = [];
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'owner_uuid');
+        return $this->belongsTo(User::class, 'owner_id');
     }
 
     public function branches(): HasMany
