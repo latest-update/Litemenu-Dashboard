@@ -9,16 +9,20 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <livewire:dashboard.content />
-{{--    <livewire:store.route />--}}
+    <div class="flex h-screen min-h-screen bg-[#FBFBFB] z-0">
+        @livewire('elements.sidebar')
+        <div class="flex flex-col w-full z-10">
+            @livewire('dashboard.components.header')
+            <div class="overflow-y-auto">
+                {{ $slot }}
+            </div>
+
+        </div>
+
+        <div wire:loading><x-common.loader.spinner /></div>
+    </div>
     <x-notifications position="top-right" />
     @vite('resources/js/main.js')
     @livewireScripts
 </body>
-<script>
-    const navigate = (url) => {
-        window.history.pushState({}, '', url);
-        Livewire.emit('changeContent', url);
-    }
-</script>
 </html>

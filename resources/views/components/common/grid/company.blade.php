@@ -17,7 +17,7 @@
     </div>
     <div class="bg-gray-50 px-5 py-3 mt-auto">
         <div class="text-sm">
-            <a onclick="navigate('/company/{{ $uuid }}')" class="font-medium cursor-pointer text-cyan-700 hover:text-cyan-900"> Open </a>
+            <a href="/company/{{ $uuid }}" class="font-medium cursor-pointer text-cyan-700 hover:text-cyan-900"> Open </a>
         </div>
     </div>
 </div>
