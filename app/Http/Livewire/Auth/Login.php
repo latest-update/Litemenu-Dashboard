@@ -38,6 +38,6 @@ class Login extends Component
 
     public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('livewire.auth.login');
+        return view('livewire.auth.login')->layout('layouts.app');
     }
 }
