@@ -10,4 +10,9 @@ trait PermissionControl
     {
         $this->assignRole('Owner');
     }
+
+    public function giveManager(): void
+    {
+        $this->assignRole('Manager');
+    }
 }
