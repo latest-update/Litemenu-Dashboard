@@ -26,4 +26,9 @@ class UserController extends Controller
             )
             ->get();
     }
+
+    public function userRoles(Request $request)
+    {
+
+    }
 }

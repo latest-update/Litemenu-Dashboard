@@ -28,12 +28,13 @@ use \Illuminate\Http\Request;
 Route::get('/register', Register::class)->name('register')->middleware('guest');
 Route::get('/login', Login::class)->name('login')->middleware('guest');
 Route::get('/profile/preferences', Preferences::class)->name('preferences')->middleware('auth');
-Route::get('/', function (Request $request) {
-    if ($request->user()->hasRole('Manager')) {
-        return redirect('/dashboard');
-    }
-    return (new Dashboard)(app(), $request->route());
-})->middleware('auth');
+//Route::get('/', function (Request $request) {
+//    if ($request->user()->hasRole('Manager')) {
+//        return redirect('/dashboard');
+//    }
+//    return (new Start)(app(), $request->route());
+//})->middleware('auth');
+Route::get('/', Start::class)->middleware('auth');
 Route::get('/analytics', Analytics::class)->middleware('auth');
 Route::get('/dashboard', Dashboard::class)->middleware('auth');
 Route::get('/settings', Settings::class)->middleware('auth');

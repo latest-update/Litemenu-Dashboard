@@ -10,8 +10,8 @@
         <x-icon name="chat" class="h-6 w-6"/>
         <x-dropdown>
             <x-dropdown.header label="Settings">
-                <x-dropdown.item icon="cog" label="Preferences" wire:click="to('/profile/preferences')" />
-                <x-dropdown.item icon="user" label="Profile" />
+                <x-dropdown.item icon="user" label="Profile" wire:click="to('/profile/preferences')" />
+                <x-dropdown.item icon="cog" label="Preferences" />
             </x-dropdown.header>
 
             <x-dropdown.item separator label="Help Center" />

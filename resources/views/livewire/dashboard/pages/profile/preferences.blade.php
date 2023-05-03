@@ -18,19 +18,31 @@
                                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"/>
                                 </svg>
                             </span>
-                            <button type="button" class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</button>
+                            <button type="button" class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onclick="$openModal('profileImage')">Change</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="col-span-3 sm:col-span-2 w-64">
+                            <x-select
+                                label="Select Role"
+                                placeholder="Select one role"
+                                :options="$roles"
+                                clearable="0"
+                                wire:model.defer="role"
+                            />
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
-                            <x-input icon="user" label="Fullname" placeholder="your name" value="{{ $user->fullname }}"/>
+                            <x-input icon="user" label="Fullname" placeholder="your name" value="{{ $user->fullname }}" wire:model.defer="user.fullname" />
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
-                            <x-input label="Email" placeholder="Your email" value="{{ $user->email }}" />
+                            <x-input label="Email" placeholder="Your email" value="{{ $user->email }}" wire:model.defer="user.email"/>
                         </div>
                     </div>
 
@@ -41,19 +53,19 @@
                     </div>
 
                     <div>
-                        <div class="mt-1">
-                            <x-textarea label="About" placeholder="Your comment" disabled/>
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="col-span-3 sm:col-span-2">
+                                <x-textarea label="About" placeholder="Your comment" disabled/>
+                            </div>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
                     </div>
-
-
-
+                    <x-button icon="check" cyan label="Update" wire:click="save" />
 
                 </form>
             </div>
         </div>
     </div>
 
-
+    <livewire:components.modals.profile.image :user="$user" />
 </div>
