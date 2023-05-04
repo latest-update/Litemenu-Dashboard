@@ -1,8 +1,8 @@
-<div class="bg-white border h-16 w-full flex items-center justify-center">
+<div class="bg-white border-b min-h-[64px] w-full flex items-center justify-center">
     <div class="flex items-center justify-start px-4 w-[90%] ">
         <x-icon name="search" class="h-6 w-5 mr-4"/>
         <div class="flex items-center ">
-            <x-input class="bg-transparent  border-[#C4C5CF] rounded-lg h-[35px] w-[220px] text-sm " placeholder="Search Here..."/>
+            <x-input class="bg-transparent border-[#C4C5CF] rounded-lg h-[35px] w-[220px] text-sm " placeholder="Search Here..."/>
         </div>
     </div>
     <div class="flex items-center justify-center w-[25%] space-x-6 h-8">
@@ -10,8 +10,8 @@
         <x-icon name="chat" class="h-6 w-6"/>
         <x-dropdown>
             <x-dropdown.header label="Settings">
+                <x-dropdown.item icon="user" label="Profile" wire:click="to('/profile/preferences')" />
                 <x-dropdown.item icon="cog" label="Preferences" />
-                <x-dropdown.item icon="user" label="Profile" />
             </x-dropdown.header>
 
             <x-dropdown.item separator label="Help Center" />

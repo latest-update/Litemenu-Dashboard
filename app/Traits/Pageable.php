@@ -6,15 +6,16 @@ trait Pageable
 {
     public $currentPage;
 
-    public function mount($currentPage)
-    {
-        $this->currentPage = $currentPage;
-    }
-
     public function changePage ($page)
     {
         $this->currentPage = $page;
-        $this->emitUp('changePage', $page);
+    }
+
+    public function mount()
+    {
+        $path = url()->current();
+        $segments = explode('/', $path);
+        $this->currentPage = end($segments);
     }
 
 }

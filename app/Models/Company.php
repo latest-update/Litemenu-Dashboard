@@ -23,6 +23,6 @@ class Company extends Model
 
     public function branches(): HasMany
     {
-        return $this->hasMany(Branch::class, 'company_id');
+        return $this->hasMany(Branch::class, 'company_uuid');
     }
 }

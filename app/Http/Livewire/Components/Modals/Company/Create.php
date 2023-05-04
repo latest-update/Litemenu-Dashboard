@@ -39,11 +39,12 @@ class Create extends Component
 
         $user->giveOwner();
 
-        $this->notification()->success(
-            'Company created',
-            "You have successfully created a new company"
-        );
-
+//        $this->notification()->success(
+//            'Company created',
+//            "You have successfully created a new company"
+//        );
+        session()->flash('created', "You have successfully created a new company");
+        return redirect()->to('/');
     }
     public function render()
     {

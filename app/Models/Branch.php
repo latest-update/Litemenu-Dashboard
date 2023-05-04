@@ -10,14 +10,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
-    use HasFactory;
     use HasUuids;
+
+    protected $primaryKey = 'uuid';
 
     protected $guarded = [];
 
     public function admin(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'admin_uuid');
+        return $this->belongsTo(User::class,'admin_id');
     }
 
     public function company(): BelongsTo
