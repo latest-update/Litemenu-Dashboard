@@ -17,13 +17,13 @@ class Image extends Component
     public function updatedPhoto()
     {
         $this->validate();
-
     }
 
     public function save()
     {
         $this->validate();
-        $this->photo->store('photos');
+        $this->photo->storeAs('public/profile', $this->user->phone . '.png');
+        return redirect()->to('profile/preferences');
     }
 
     public function render()

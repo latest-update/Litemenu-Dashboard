@@ -10,6 +10,11 @@ class Start extends Component
 {
     use Actions;
 
+    public function mount()
+    {
+        if (auth()->user()->hasRole(['Manager'])) return redirect()->to('/dashboard');
+    }
+
     public function companies()
     {
         return auth()->user()->companies()->get();
