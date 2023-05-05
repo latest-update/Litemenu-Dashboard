@@ -1,4 +1,4 @@
-<div class="bg-white border-b min-h-[64px] w-full flex items-center justify-between">
+<div class="bg-white border-b min-h-[64px] w-full flex items-center justify-between max-lg:fixed top-0 z-30">
     <div class="lg:hidden flex items-center justify-start ml-4">
         <x-dropdown align="left" width="w-64">
             <x-slot name="trigger"><x-icon name="menu-alt-1" class="h-6 w-6"/></x-slot>

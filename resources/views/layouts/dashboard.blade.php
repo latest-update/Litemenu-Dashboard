@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full bg-gray-100">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -8,8 +8,8 @@
     @livewireStyles
     @vite('resources/css/app.css')
 </head>
-<body class="h-full">
-    <div class="flex h-screen min-h-screen bg-[#FBFBFB] z-0">
+<body>
+    <div class="flex h-screen bg-[#FBFBFB] z-0 overflow-y-auto max-lg:h-fit max-lg:pt-[64px]"> {{-- h-screen --}}
         @livewire('elements.sidebar')
         <div class="flex flex-col w-full z-10">
             @livewire('dashboard.components.header')
