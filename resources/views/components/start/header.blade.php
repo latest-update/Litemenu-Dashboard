@@ -9,7 +9,7 @@
                     <div>
                         <div class="flex items-center">
                             <img class="h-16 w-16 rounded-full sm:hidden"
-                                 src="https://www.rd.com/wp-content/uploads/2020/04/GettyImages-694542042-e1586274805503-scaled.jpg?fit=700,468"
+                                 src="{{ $user->profile_img() }}"
                                  alt="">
                             <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
                                 Hello, {{ $user->fullname }}</h1>
