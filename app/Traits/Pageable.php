@@ -4,7 +4,7 @@ namespace App\Traits;
 
 trait Pageable
 {
-    public $currentPage;
+//    public $currentPage;
 
     public function changePage ($page)
     {
