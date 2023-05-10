@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('accesses', function (Blueprint $table) {
             $table->id();
+            $table->string('position');  // new
             $table->uuid('branch_uuid');
             $table->foreignId('user_id');
             $table->timestamps();

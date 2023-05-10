@@ -32,10 +32,16 @@ Route::get('/', Start::class)->middleware('auth');
 Route::get('/analytics', Analytics::class)->middleware('auth');
 Route::get('/dashboard', Dashboard::class)->middleware('auth');
 Route::get('/settings', Settings::class)->middleware('auth');
-Route::get('/sandbox', Sandbox::class)->middleware('auth');
 Route::get('/orders', Orders::class)->middleware('auth');
 
 Route::get('/company/{company:uuid}', Home::class)->middleware('auth');
 Route::get('/company/{company:uuid}/branches', Branches::class)->middleware('auth');
 
 Route::get('/branch/{branch:uuid}', BranchHome::class)->middleware('auth');
+
+Route::get('/sandbox', Sandbox::class)->middleware('auth');
+Route::get('/sandbox/tables', Sandbox\Tables::class)->middleware('auth');
+Route::get('/sandbox/employees', Sandbox\Employees::class)->middleware('auth');
+Route::get('/sandbox/promotions', Sandbox\Promotions::class)->middleware('auth');
+Route::get('/sandbox/menu', Sandbox\Menu::class)->middleware('auth');
+Route::get('/sandbox/{branch:uuid}/tables', Sandbox\Tables::class)->middleware('auth');

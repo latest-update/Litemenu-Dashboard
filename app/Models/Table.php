@@ -12,8 +12,15 @@ class Table extends Model
 {
     use HasFactory;
     use HasUuids;
+    protected $primaryKey = 'uuid';
 
     protected $guarded = [];
+
+    protected $fillable = [
+        'internal_id',
+        'temporary_key',
+        'branch_uuid'
+    ];
 
     public function branch(): BelongsTo
     {

@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/user/roles', [UserController::class, 'userRoles'])->name('api.users');
 Route::get('/users', [UserController::class, 'users'])->name('api.users');
+
+Route::post('/table/edit', [UserController::class, 'users'])->name('table.edit');
+Route::post('/table/destroy', [UserController::class, 'users'])->name('table.destroy');

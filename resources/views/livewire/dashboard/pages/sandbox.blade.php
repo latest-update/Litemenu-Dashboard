@@ -1,3 +1,3 @@
-<div class="flex flex-col justify-center items-center">
-    <p>Sandbox</p>
+<div>
+    <livewire:dashboard.pages.sandbox.actions />
 </div>

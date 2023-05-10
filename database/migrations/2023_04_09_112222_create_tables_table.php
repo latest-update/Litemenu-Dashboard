@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->integer('floor')->nullable();
             $table->string('internal_id')->nullable();
             $table->uuid('temporary_key')->nullable();
             $table->uuid('branch_uuid');
