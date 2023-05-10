@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('pictures')->nullable();
             $table->json('ingredients')->nullable();
             $table->integer('price');
-            $table->text('note')->nullable();
+            $table->text('notes')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->boolean('is_active')->default(false);
             $table->integer('amount')->default(0);
