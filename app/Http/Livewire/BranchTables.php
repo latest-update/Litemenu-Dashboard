@@ -187,11 +187,12 @@ final class BranchTables extends PowerGridComponent
                     return Blade::render(<<<HTML
                         <x-button dark icon="qrcode" />
                         <x-button white icon="wifi" />
+                        <x-button slate icon="refresh" />
+                        <x-button negative icon="trash" />
                     HTML);
                 })
         ];
     }
-
 
     /*
     |--------------------------------------------------------------------------
