@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TableController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dashboard\Pages\Analytics;
@@ -45,3 +46,4 @@ Route::get('/sandbox/employees', Sandbox\Employees::class)->middleware('auth');
 Route::get('/sandbox/promotions', Sandbox\Promotions::class)->middleware('auth');
 Route::get('/sandbox/menu', Sandbox\Menu::class)->middleware('auth');
 Route::get('/sandbox/{branch:uuid}/tables', Sandbox\Tables::class)->middleware('auth');
+

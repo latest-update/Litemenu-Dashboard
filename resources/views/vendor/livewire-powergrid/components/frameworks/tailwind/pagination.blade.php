@@ -39,13 +39,13 @@
 
                     @if(!$paginator->onFirstPage())
                         <a
-                            class="px-2 py-1 pt-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
+                            class="px-2 py-1 pt-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
                             wire:click="gotoPage(1)"
                         >
                             <x-livewire-powergrid::icons.chevron-double-left/>
                         </a>
 
-                        <a class="px-2 py-1 pt-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
+                        <a class="px-2 py-1 pt-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
                            wire:click="previousPage"
                            rel="next">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -71,9 +71,9 @@
 
                                 @if ($page == $paginator->currentPage())
                                     <span
-                                        class="px-2 py-1 m-1 text-center border-pg-primary-400 rounded cursor-pointer border-1 dark:bg-pg-primary-700 dark:text-white dark:text-pg-primary-300">{{ $page }}</span>
+                                        class="px-2 py-1 m-1 text-center border-pg-primary-400 rounded cursor-pointer border-1 dark:bg-pg-primary-700 dark: dark:text-pg-primary-300">{{ $page }}</span>
                                 @elseif ($page === $paginator->currentPage() + 1 || $page === $paginator->currentPage() + 2 || $page === $paginator->currentPage() - 1 || $page === $paginator->currentPage() - 2)
-                                    <a class="px-2 py-1 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
+                                    <a class="px-2 py-1 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
 
                                        wire:click="gotoPage({{$page}})">{{ $page }}</a>
                                 @endif
@@ -92,7 +92,7 @@
 
                     @if ($paginator->hasMorePages())
                         @if($paginator->lastPage() - $paginator->currentPage() >= 2)
-                            <a class="px-2 py-1 pt-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
+                            <a class="px-2 py-1 pt-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
                                wire:click="nextPage"
                                rel="next">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -102,7 +102,7 @@
                                 </svg>
                             </a>
                         @endif
-                        <a class="px-2 py-1 pt-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
+                        <a class="px-2 py-1 pt-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300"
                            wire:click="gotoPage({{ $paginator->lastPage() }})"
                         >
                             <x-livewire-powergrid::icons.chevron-double-right/>
@@ -128,13 +128,13 @@
                                 <button
                                     wire:click="setPage('{{$paginator->previousCursor()->encode()}}','{{ $paginator->getCursorName() }}')"
                                     wire:loading.attr="disabled"
-                                    class="p-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
+                                    class="p-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
                                         <x-livewire-powergrid::icons.chevron-double-left/>
                                 </button>
                             @else
                                 <button wire:click="previousPage('{{ $paginator->getPageName() }}')"
                                         wire:loading.attr="disabled"
-                                        class="p-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
+                                        class="p-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
                                         <x-livewire-powergrid::icons.chevron-double-left/>
                                 </button>
                             @endif
@@ -148,13 +148,13 @@
                                     <button
                                         wire:click="setPage('{{$paginator->nextCursor()->encode()}}','{{ $paginator->getCursorName() }}')"
                                         wire:loading.attr="disabled"
-                                        class="p-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
+                                        class="p-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
                                         <x-livewire-powergrid::icons.chevron-double-right/>
                                 </button>
                                 @else
                                     <button wire:click="nextPage('{{ $paginator->getPageName() }}')"
                                             wire:loading.attr="disabled"
-                                            class="p-2 m-1 text-center text-white bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
+                                            class="p-2 m-1 text-center  bg-pg-primary-500 border-pg-primary-400 rounded cursor-pointer border-1 hover:bg-pg-primary-600 hover:border-pg-primary-800 dark:text-pg-primary-300">
                                         <x-livewire-powergrid::icons.chevron-double-right/>
                                 </button>
                                 @endif

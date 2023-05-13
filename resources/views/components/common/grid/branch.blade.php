@@ -7,7 +7,7 @@
                 <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Manager</span>
             </div>
         </div>
-        <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{ $branch->admin->profile_img() }}" alt="">
+        <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{ $branch->admin->profileImg() }}" alt="">
     </div>
     <div class="bg-gray-50 px-5 py-3">
         <div class="text-sm">

@@ -18,6 +18,8 @@ final class BranchTables extends PowerGridComponent
 
     public string $primaryKey = 'uuid';
     public string $sortField = 'uuid';
+    public $internal_id;
+
 
 
     /*
@@ -92,6 +94,7 @@ final class BranchTables extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
+            ->addColumn('uuid')
             ->addColumn('internal_id')
 
            /** Example of custom column using a closure **/
@@ -119,9 +122,13 @@ final class BranchTables extends PowerGridComponent
     public function columns(): array
     {
         return [
+            Column::make('uuid', 'uuid')
+                ->hidden(),
+
             Column::make('Internal id', 'internal_id')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->editOnClick(),
 
             Column::make('Temporary key', 'temporary_key')
 //                ->sortable()
@@ -170,28 +177,41 @@ final class BranchTables extends PowerGridComponent
     public function actions(): array
     {
         return [
-//           Button::make('edit', 'Edit')
-//               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-//               ->route('table.edit', function(Table $model) {
-//                    return $model->uuid;
-//               }),
-
-//           Button::make('destroy', 'Delete')
-//               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-//               ->route('table.destroy', function(Table $model) {
-//                    return $model->uuid;
-//               })
-//               ->method('delete')
-            Button::add('qrcode')
+            Button::add('actions')
                 ->render(function (Table $table) {
                     return Blade::render(<<<HTML
-                        <x-button dark icon="qrcode" />
-                        <x-button white icon="wifi" />
-                        <x-button slate icon="refresh" />
-                        <x-button negative icon="trash" />
+                        <x-button dark icon="qrcode" wire:click="gener('$table->uuid')" onclick="\$openModal('showQr');"/>
+                        <x-button white icon="wifi" onclick="navigator.clipboard.writeText('{$table->link()}')" />
+                        <x-button slate icon="refresh" wire:click="refreshLink('$table->uuid')" />
+                        <x-button negative icon="trash" wire:click="removeTable('$table->uuid')" />
                     HTML);
                 })
         ];
+    }
+
+    public function refreshLink($uuid)
+    {
+        Table::find($uuid)->refreshLink();
+    }
+
+    public function removeTable($uuid)
+    {
+        Table::find($uuid)->delete();
+
+    }
+
+    public function gener($uuid)
+    {
+        $table = Table::query()->find($uuid);
+        $this->emit('generateQr', $table->link(), $table->uuid, $table->internal_id);
+    }
+
+
+    public function onUpdatedEditable(string $id, string $field, string $value): void
+    {
+        Table::query()->find($id)->update([
+            $field => $value,
+        ]);
     }
 
     /*

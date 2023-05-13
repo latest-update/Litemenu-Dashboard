@@ -9,12 +9,12 @@ use Livewire\Component;
 class Dashboard extends Component
 {
     public User $user;
-    public Branch $branch;
+    public ?Branch $branch;
 
     public function mount()
     {
         $this->user = auth()->user();
-        $this->branch = $this->user->branch()->first();
+        $this->branch = $this->user->getBranch();
     }
 
     public function render()

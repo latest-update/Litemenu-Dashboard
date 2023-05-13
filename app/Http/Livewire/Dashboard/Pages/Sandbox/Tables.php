@@ -13,7 +13,16 @@ class Tables extends Component
     {
         $this->branch = $branch;
         if ($branch->getConnectionName() == null)
-            $this->branch = auth()->user()->branch()->first();
+            $this->branch = auth()->user()->getBranch();
+    }
+
+    public function new()
+    {
+        $this->branch->tables()->create([
+           'internal_id' => 'Table №' . fake()->randomDigit(),
+           'temporary_key' => fake()->uuid()
+        ]);
+        $this->emit('pg:eventRefresh-default');
     }
 
     public function render()
