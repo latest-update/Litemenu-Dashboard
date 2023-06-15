@@ -21,7 +21,7 @@
                 <h3>Actions</h3>
             </div>
             <ul role="list" class="relative z-0 divide-y divide-gray-200">
-                <x-sandbox.menu.category.new-catalog onclick="$openModal('profileImage')"/>
+                <x-sandbox.menu.category.new-catalog onclick="$openModal('newCatalog')"/>
             </ul>
         </div>
     </nav>

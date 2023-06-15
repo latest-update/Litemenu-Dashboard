@@ -17,6 +17,8 @@
     "dependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/line-clamp": "^0.4.4",
-        "alpinejs": "^3.12.0"
+        "alpinejs": "^3.12.0",
+        "filerobot-image-editor": "^4.5.0",
+        "react-filerobot-image-editor": "^4.5.0"
     }
 }
