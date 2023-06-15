@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->uuid()->primary();
+            $table->string('type');
+            $table->string('size');
             $table->string('name');
-            $table->string('slug');
             $table->uuid('branch_uuid');
             $table->timestamps();
 

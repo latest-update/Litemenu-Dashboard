@@ -9,7 +9,7 @@
                 <div class="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
                     <p class="text-sm font-medium text-gray-600">Welcome to,</p>
                     <p class="text-xl font-bold text-gray-900 sm:text-2xl">{{ $company->name }}</p>
-                    <p class="text-sm font-medium text-gray-600">{{ $company->address }}</p>
+                    <p class="text-sm font-medium text-gray-600">Company address: <span class="font-normal">{{ $company->address }}</span></p>
                 </div>
             </div>
         </div>

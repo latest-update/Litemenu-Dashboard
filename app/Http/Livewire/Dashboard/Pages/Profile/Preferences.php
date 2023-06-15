@@ -32,7 +32,7 @@ class Preferences extends Component
     public function mount()
     {
         $this->user = auth()->user();
-        $this->role = auth()->user()->getRoleNames()[0];
+        $this->role = $this->user->getRoleNames()[0] ?? 'Гость';
     }
 
     public function render()

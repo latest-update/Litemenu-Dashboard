@@ -1,4 +1,4 @@
-<div class="max-w-lg mx-auto mt-16">
+<div class="max-w-lg mx-auto mt-16 max-sm:mx-8">
     <h2 class="text-lg font-medium text-gray-900">Configure your company</h2>
     <p class="mt-1 text-sm text-gray-500">Get started by configuring your branches or just select a template.</p>
     <ul role="list" class="mt-6 border-t border-b border-gray-200 divide-y divide-gray-200">

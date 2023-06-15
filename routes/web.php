@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TableController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dashboard\Pages\Analytics;
@@ -12,7 +13,7 @@ use App\Http\Livewire\Dashboard\Pages\Settings;
 use App\Http\Livewire\Dashboard\Pages\Start;
 use App\Http\Livewire\Dashboard\Pages\Company\Home;
 use Illuminate\Support\Facades\Route;
-use \Illuminate\Http\Request;
+use App\Http\Livewire\Dashboard\Pages\Branch\Home as BranchHome;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +29,21 @@ use \Illuminate\Http\Request;
 Route::get('/register', Register::class)->name('register')->middleware('guest');
 Route::get('/login', Login::class)->name('login')->middleware('guest');
 Route::get('/profile/preferences', Preferences::class)->name('preferences')->middleware('auth');
-//Route::get('/', function (Request $request) {
-//    if ($request->user()->hasRole('Manager')) {
-//        return redirect('/dashboard');
-//    }
-//    return (new Start)(app(), $request->route());
-//})->middleware('auth');
 Route::get('/', Start::class)->middleware('auth');
 Route::get('/analytics', Analytics::class)->middleware('auth');
 Route::get('/dashboard', Dashboard::class)->middleware('auth');
 Route::get('/settings', Settings::class)->middleware('auth');
-Route::get('/sandbox', Sandbox::class)->middleware('auth');
 Route::get('/orders', Orders::class)->middleware('auth');
 
 Route::get('/company/{company:uuid}', Home::class)->middleware('auth');
 Route::get('/company/{company:uuid}/branches', Branches::class)->middleware('auth');
+
+Route::get('/branch/{branch:uuid}', BranchHome::class)->middleware('auth');
+
+Route::get('/sandbox', Sandbox::class)->middleware('auth');
+Route::get('/sandbox/tables', Sandbox\Tables::class)->middleware('auth');
+Route::get('/sandbox/employees', Sandbox\Employees::class)->middleware('auth');
+Route::get('/sandbox/promotions', Sandbox\Promotions::class)->middleware('auth');
+Route::get('/sandbox/menu', Sandbox\Menu::class)->middleware('auth');
+Route::get('/sandbox/{branch:uuid}/tables', Sandbox\Tables::class)->middleware('auth');
+

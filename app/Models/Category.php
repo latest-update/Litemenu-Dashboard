@@ -13,6 +13,10 @@ class Category extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'image' => 'array'
+    ];
+
     public function dishes()
     {
         return $this->hasMany(Dish::class);

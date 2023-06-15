@@ -64,4 +64,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Access::class, 'user_id');
     }
+
+    public function profileImg(): string
+    {
+        $filename = "storage/profile/{$this->phone}.png";
+        return file_exists($filename) ? asset($filename) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG91Ivd0CD1UA-3GKi8OPGqO9BZvrfsclJFujvxLWQU6z0UR5xNec89_mVGFysedGeUo0&usqp=CAU';
+    }
+
+    public function getBranch(): object|null
+    {
+        if (!($branch = $this->branch()->first()))
+        {
+            $this->giveOwner();
+            redirect()->to('/');
+        }
+        return $branch;
+    }
+
 }
