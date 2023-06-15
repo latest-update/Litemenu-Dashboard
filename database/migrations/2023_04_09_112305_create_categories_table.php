@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('branch_uuid');
             $table->string('name');
             $table->string('description')->nullable();
+            $table->json('image')->nullable();
 
             $table->foreign('branch_uuid')->references('uuid')->on('branches');
         });
