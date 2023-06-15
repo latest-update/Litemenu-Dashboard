@@ -36,5 +36,4 @@
     </div>
 
     @error('photo') <span class="error mt-4">{{ $message }}</span> @enderror
-    @stack('imageEditor')
 </x-modal.card>

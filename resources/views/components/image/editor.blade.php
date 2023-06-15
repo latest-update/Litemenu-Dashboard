@@ -1,6 +1,5 @@
 <div id="editor_container" {{ $attributes }}>
 
-    @pushOnce('imageEditor')
     <script type="module">
         const { TABS, TOOLS } = FilerobotImageEditor;
         const config = {
@@ -81,6 +80,4 @@
             },
         });
     </script>
-    @endPushOnce
-
 </div>
