@@ -3,25 +3,36 @@
 namespace App\Http\Livewire\Components\Modals\Catalog;
 
 use App\Http\Livewire\Image\EditorComponent;
-use Livewire\WithFileUploads;
+use App\Models\Category;
 
 class Create extends EditorComponent
 {
-    use WithFileUploads;
+    protected $disk = 'catalog';
+    public string $name = '';
+    public string $description = '';
+    public int $parentCategory = 0;
 
-    public $user;
-    protected $rules = [
-        'photo' => ['image', 'max:1024', 'mimes:png,jpg']
+    protected $queryString = ['parentCategory'];
+
+    protected array $customRules = [
+        'name' => ['required', 'string', 'max:30'],
+        'description' => ['required', 'string', 'max:50']
     ];
-
-    public function updatedPhoto()
-    {
-        $this->validate();
-    }
 
     public function save()
     {
+        $category = $this->validate();
+        unset($category['photo']);
 
+        Category::create([
+            ...$category,
+            'branch_uuid' => auth()->user()->getBranch()->uuid,
+            'parent_category_id' => $this->parentCategory,
+            'image' => [
+                $this->imageLink
+            ]
+        ]);
+        return redirect(request()->header('Referer'));
     }
 
     public function render()

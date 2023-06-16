@@ -39,7 +39,7 @@ class AsideCategory extends Component
             ->where('branch_uuid', $this->branch->uuid)
             ->get()
             ->groupBy(function ($category) {
-                return strtoupper(substr($category->name, 0, 1));
+                return mb_strtoupper(mb_substr($category->name, 0, 1));
             })->toArray();
     }
 

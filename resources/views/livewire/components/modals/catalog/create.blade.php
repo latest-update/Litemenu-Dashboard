@@ -1,15 +1,19 @@
-<x-modal.card title="Catalog image upload" wire:model.defer="newCatalog">
+<x-modal.card title="Catalog image upload" wire:model.defer="newCatalog" >
+    <form wire:submit.prevent="save">
     @csrf
     @if ($photo)
         <label>Preview</label>
         <div class="flex justify-center bg-gray-200 rounded-2xl mb-4">
-            <x-image.editor image-to-edit="{{ asset($this->getImage()) }}" class="max-w-full" />
+            <x-image.editor image-to-edit="{{ asset($this->saveAndGetImage()) }}" class="max-w-full" />
         </div>
-        @if (!$errors->has('photo'))
-            <div class="flex flex-row-reverse mt-4">
-                <x-button label="Upload" wire:click="save" />
-            </div>
-        @endif
+    @elseif($imageLink)
+        <div class="flex justify-center bg-gray-200 rounded-2xl mb-4">
+            <img src="{{ $imageLink }}" class="object-contain h-48 w-96">
+        </div>
+        <div class="flex flex-row-reverse">
+            <x-button label="Reset" wire:click="reload" />
+        </div>
+
     @else
         <div class="sm:col-span-6">
             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
@@ -30,10 +34,30 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <x-input label="Name" placeholder="Catalog name" />
-        <x-input label="Description" placeholder="Short description" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+        <div>
+            <x-input label="Name" placeholder="Catalog name" wire:model.defer="name" />
+        </div>
+        <div>
+            <x-input label="Description" placeholder="Short description" wire:model.defer="description" />
+        </div>
+
+
+
     </div>
 
-    @error('photo') <span class="error mt-4">{{ $message }}</span> @enderror
+    <x-slot name="footer">
+        <div class="flex flex-row-reverse justify-between gap-x-4">
+
+            <div class="flex">
+                <x-button flat label="Cancel" x-on:click="close" wire:click="reload" />
+                @if (!$photo)
+                    <x-button primary label="Save" wire:click="save"/>
+                @endif
+            </div>
+        </div>
+    </x-slot>
+
+    @error('photo') <span class="mt-2 text-sm text-secondary-500 dark:text-secondary-400">{{ $message }}</span> @enderror
+    </form>
 </x-modal.card>

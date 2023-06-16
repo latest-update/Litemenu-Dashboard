@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    use HasUuids;
 
     protected $guarded = [];
+
+    public $timestamps = false;
 
     protected $casts = [
         'image' => 'array'

@@ -1,7 +1,7 @@
 <li>
     <div class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-[#FC410C]">
         <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://pixlok.com/wp-content/uploads/2021/12/Add-Icon-SVG-98ygj.png" alt="">
+            <img class="h-10 w-10 rounded-full" src="https://static.thenounproject.com/png/953211-200.png" alt="">
         </div>
         <div class="flex-1 min-w-0">
             <a class="focus:outline-none cursor-pointer" {{ $attributes }}>

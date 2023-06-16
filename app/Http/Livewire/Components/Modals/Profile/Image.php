@@ -14,10 +14,6 @@ class Image extends Component
     protected $rules = [
         'photo' => ['image', 'max:1024', 'mimes:png,jpg']
     ];
-    public function updatedPhoto()
-    {
-        $this->validate();
-    }
 
     public function save()
     {
