@@ -44,6 +44,6 @@ Route::get('/sandbox', Sandbox::class)->middleware('auth');
 Route::get('/sandbox/tables', Sandbox\Tables::class)->middleware('auth');
 Route::get('/sandbox/employees', Sandbox\Employees::class)->middleware('auth');
 Route::get('/sandbox/promotions', Sandbox\Promotions::class)->middleware('auth');
-Route::get('/sandbox/menu', Sandbox\Menu::class)->middleware('auth');
+Route::get('/sandbox/menu', Sandbox\Menu::class)->middleware('auth')->name('sandbox.menu');
 Route::get('/sandbox/{branch:uuid}/tables', Sandbox\Tables::class)->middleware('auth');
 

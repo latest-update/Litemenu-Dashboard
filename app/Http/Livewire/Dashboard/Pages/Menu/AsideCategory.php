@@ -18,8 +18,6 @@ class AsideCategory extends Component
     public array $dynamicCategories;
     public int $parentCategory = 0;
 
-    protected $queryString = ['parentCategory'];
-
     public function sortCategories()
     {
         foreach ($this->categories as $group => $category) {

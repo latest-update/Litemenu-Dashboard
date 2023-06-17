@@ -1,7 +1,7 @@
 <aside class="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-gray-200">
     <x-sandbox.menu.aside-category-search wire:model="search" />
-    <!-- Directory list -->
-    <nav class="flex-1 min-h-0 overflow-y-auto" aria-label="Directory">
+    <!-- Category list -->
+    <nav class="flex-1 min-h-0 overflow-y-auto" aria-label="Category">
         @forelse($dynamicCategories ?? [] as $key=>$catalogs)
             @continue(count($catalogs) == 0)
             <div class="relative">
@@ -10,7 +10,7 @@
                 </div>
                 <ul role="list" class="relative z-0 divide-y divide-gray-200">
                     @foreach($catalogs as $catalog)
-                        <x-sandbox.menu.category.element :catalog="$catalog" wire:click="$set('parentCategory', {{ $catalog['id'] }})" />
+                        <x-sandbox.menu.category.element :catalog="$catalog" wire:click="$emit('changeParent', {{ $catalog['id'] }})" />
                     @endforeach
                 </ul>
             </div>

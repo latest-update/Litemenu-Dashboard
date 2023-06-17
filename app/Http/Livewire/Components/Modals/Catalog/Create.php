@@ -12,8 +12,6 @@ class Create extends EditorComponent
     public string $description = '';
     public int $parentCategory = 0;
 
-    protected $queryString = ['parentCategory'];
-
     protected array $customRules = [
         'name' => ['required', 'string', 'max:30', 'min:3'],
         'description' => ['required', 'string', 'max:50', 'min:3']
