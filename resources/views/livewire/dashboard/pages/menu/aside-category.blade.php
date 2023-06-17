@@ -2,7 +2,7 @@
     <x-sandbox.menu.aside-category-search wire:model="search" />
     <!-- Directory list -->
     <nav class="flex-1 min-h-0 overflow-y-auto" aria-label="Directory">
-        @foreach($dynamicCategories as $key=>$catalogs)
+        @forelse($dynamicCategories ?? [] as $key=>$catalogs)
             @continue(count($catalogs) == 0)
             <div class="relative">
                 <div class="z-10 sticky top-0 border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500">
@@ -12,10 +12,15 @@
                     @foreach($catalogs as $catalog)
                         <x-sandbox.menu.category.element :catalog="$catalog" wire:click="$set('parentCategory', {{ $catalog['id'] }})" />
                     @endforeach
-
                 </ul>
             </div>
-        @endforeach
+            @empty
+            <div class="relative">
+                <div class="z-10 sticky top-0 border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500">
+                    <h3>Oops! There is a nothing</h3>
+                </div>
+            </div>
+        @endforelse
         <div class="relative">
             <div class="z-10 sticky top-0 border-t border-b border-gray-200 bg-gray-50 px-6 py-1 text-sm font-medium text-gray-500">
                 <h3>Actions</h3>

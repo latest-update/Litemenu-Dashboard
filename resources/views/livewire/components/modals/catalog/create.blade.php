@@ -1,5 +1,4 @@
 <x-modal.card title="Catalog image upload" wire:model.defer="newCatalog" >
-    <form wire:submit.prevent="save">
     @csrf
     @if ($photo)
         <label>Preview</label>
@@ -41,9 +40,6 @@
         <div>
             <x-input label="Description" placeholder="Short description" wire:model.defer="description" />
         </div>
-
-
-
     </div>
 
     <x-slot name="footer">
@@ -59,5 +55,4 @@
     </x-slot>
 
     @error('photo') <span class="mt-2 text-sm text-secondary-500 dark:text-secondary-400">{{ $message }}</span> @enderror
-    </form>
 </x-modal.card>
