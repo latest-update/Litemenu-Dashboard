@@ -29,16 +29,28 @@ class AsideCategory extends Component
         }
     }
 
-    public function mount()
+    public function getCategories()
     {
-        $this->user = auth()->user();
-        $this->branch = $this->user->getBranch();
         $this->categories = Category::query()
             ->where('branch_uuid', $this->branch->uuid)
             ->get()
             ->groupBy(function ($category) {
                 return mb_strtoupper(mb_substr($category->name, 0, 1));
             })->toArray();
+    }
+
+    public function mount()
+    {
+        $this->user = auth()->user();
+        $this->branch = $this->user->getBranch();
+        $this->getCategories();
+    }
+
+    public function remove(int $categoryId)
+    {
+        Category::find($categoryId)->delete();
+        Category::query()->where('parent_category_id', $categoryId)->delete();
+        $this->getCategories();
     }
 
     public function render()

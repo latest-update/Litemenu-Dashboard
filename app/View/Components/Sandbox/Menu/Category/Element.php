@@ -11,11 +11,13 @@ class Element extends Component
     public string $name;
     public string $description;
     public string $image;
+    public int $id;
     /**
      * Create a new component instance.
      */
     public function __construct(array $catalog)
     {
+        $this->id = $catalog['id'];
         $this->name = $catalog['name'];
         $this->description = $catalog['description'];
         $this->image = $catalog['image'][0] ?? 'https://www.clipartmax.com/png/small/138-1380617_organic-food-category-icons-organic-icon-png.png';
