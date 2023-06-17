@@ -1,4 +1,4 @@
-<x-modal.card title="Catalog image upload" wire:model.defer="newCatalog" >
+<x-modal.card title="Catalog image upload" wire:model.defer="newCatalog" x-on:close="$wire.reload()">
     @csrf
     @if ($photo)
         <label>Preview</label>
@@ -35,10 +35,10 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
         <div>
-            <x-input label="Name" placeholder="Catalog name" wire:model.defer="name" />
+            <x-input label="Name" placeholder="Catalog name" wire:model.debounce="name" />
         </div>
         <div>
-            <x-input label="Description" placeholder="Short description" wire:model.defer="description" />
+            <x-input label="Description" placeholder="Short description" wire:model.debounce="description" />
         </div>
     </div>
 
@@ -46,7 +46,7 @@
         <div class="flex flex-row-reverse justify-between gap-x-4">
 
             <div class="flex">
-                <x-button flat label="Cancel" x-on:click="close" wire:click="reload" />
+                <x-button flat label="Cancel" x-on:click="close"/>
                 @if (!$photo)
                     <x-button primary label="Save" wire:click="save"/>
                 @endif

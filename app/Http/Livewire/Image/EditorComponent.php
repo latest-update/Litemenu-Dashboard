@@ -67,7 +67,7 @@ class EditorComponent extends Component
     public function reload(): void
     {
         Storage::disk('public')->delete('tmp/' . $this->tempImage);
-        $this->resetExcept($this->disk);
+        $this->reset();
     }
 
     protected function rules()
