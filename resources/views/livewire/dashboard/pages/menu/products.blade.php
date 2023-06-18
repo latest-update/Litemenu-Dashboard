@@ -1,9 +1,4 @@
 <div class="mb-10">
-    <script>
-        window.addEventListener("DOMContentLoaded", (event) => {
-            $openModal('newDish')
-        });
-    </script>
     <!-- Filters -->
     <section aria-labelledby="filter-heading" class="relative z-10 border-t border-b border-gray-200 grid items-center">
         <div class="relative col-start-1 row-start-1 py-4">

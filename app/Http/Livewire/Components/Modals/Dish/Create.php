@@ -2,23 +2,23 @@
 
 namespace App\Http\Livewire\Components\Modals\Dish;
 
-use App\Http\Livewire\Image\EditorComponent;
+use App\Http\Livewire\Image\MultipleEditorComponent;
 use App\Models\Dish;
-use Livewire\Component;
 
-class Create extends EditorComponent
+class Create extends MultipleEditorComponent
 {
-    public string $title;
-    public string $description;
-    public string $notes;
-    public string $price;
+    protected $disk = 'dish';
+    public string $title = '';
+    public string $description = '';
+    public string $notes = '';
+    public string $price = '';
 
     public array $ingredients = [];
     public array $pictures = [];
     public int $parentCategory = 0;
 
-    public string $optionName;
-    public string $optionPrice;
+    public string $optionName = '';
+    public string $optionPrice = '';
 
     protected array $customRules = [
         'title' => ['required', 'string', 'min:2', 'max:50'],
@@ -34,7 +34,8 @@ class Create extends EditorComponent
         Dish::create([
             ...$dish,
             'category_id' => $this->parentCategory,
-            'ingredients' => $this->ingredients
+            'ingredients' => $this->ingredients,
+            'pictures' => $this->imageLinks,
         ]);
         return redirect(request()->header('Referer'));
     }

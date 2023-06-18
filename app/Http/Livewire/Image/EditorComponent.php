@@ -55,8 +55,13 @@ class EditorComponent extends Component
         $decodedData = base64_decode($base64Str);
         $this->saveImage($decodedData, $filename);
         $this->photo = null;
-        $this->imageLink = Storage::disk($this->disk)->url($this->subDir . '/' . $filename);
+        $this->imageLink($filename);
         Storage::disk('public')->delete('tmp/' . $this->tempImage);
+    }
+
+    public function imageLink($filename)
+    {
+        $this->imageLink = Storage::disk($this->disk)->url($this->subDir . '/' . $filename);
     }
 
     public function saveImage($image, $imageName): void

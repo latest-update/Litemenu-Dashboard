@@ -1,4 +1,5 @@
-<div id="editor_container" {{ $attributes }}>
+@php($id = Str::random(5))
+<div id="editor_container_{{ $id }}" {{ $attributes }}>
 
     <script type="module">
         const { TABS, TOOLS } = FilerobotImageEditor;
@@ -69,14 +70,14 @@
 
         // Assuming we have a div with id="editor_container"
         const filerobotImageEditor = new FilerobotImageEditor(
-            document.querySelector('#editor_container'),
+            document.querySelector('#editor_container_{{ $id }}'),
             config,
         );
 
         filerobotImageEditor.render({
             onClose: (closingReason) => {
                 console.log('Closing reason', closingReason);
-                filerobotImageEditor.terminate();
+                // filerobotImageEditor.terminate();
             },
         });
     </script>
