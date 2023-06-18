@@ -12,8 +12,8 @@
             </a>
         </div>
         <div>
-            <x-dropdown class="absolute z-20">
-                <x-dropdown.header label="Actions">
+            <x-dropdown class="sticky top-0">
+                <x-dropdown.header label="Actions" >
                     <x-dropdown.item icon="pencil" label="Edit" disabled/>
                     <x-dropdown.item icon="trash" label="Remove" wire:click="remove({{ $id }})" />
                 </x-dropdown.header>
