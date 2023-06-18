@@ -51,6 +51,7 @@ class AsideCategory extends Component
         Category::find($categoryId)->delete();
         Category::query()->where('parent_category_id', $categoryId)->delete();
         $this->getCategories();
+        $this->emit('changeParent', $this->parentCategory);
     }
 
     public function render()

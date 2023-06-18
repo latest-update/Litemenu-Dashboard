@@ -8,4 +8,5 @@
         </div>
     </div>
     <livewire:components.modals.catalog.create :parent-category="$parentCategory" wire:key="{{ time() }}"/>
+    <livewire:components.modals.dish.create :parent-category="$parentCategory" wire:key="{{ time() }}"/>
 </div>

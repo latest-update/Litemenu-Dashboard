@@ -14,7 +14,8 @@
     <article class="min-h-screen">
         <!-- Category header -->
         <x-sandbox.menu.category.header :$category />
-
+        <!-- Category body -->
+        <livewire:dashboard.pages.menu.products :category="$category" />
 
     </article>
     @endisset

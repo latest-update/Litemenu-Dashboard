@@ -13,7 +13,14 @@ class Dish extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $primaryKey = 'uuid';
+
     protected $guarded = [];
+
+    protected $casts = [
+        'ingredients' => 'array',
+        'pictures' => 'array'
+    ];
 
     public function category(): BelongsTo
     {
