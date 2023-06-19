@@ -16,6 +16,8 @@ final class BranchTables extends PowerGridComponent
     use ActionButton;
     use WithExport;
 
+    public string $branch_uuid;
+
     public string $primaryKey = 'uuid';
     public string $sortField = 'uuid';
     public $internal_id;
@@ -59,7 +61,7 @@ final class BranchTables extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Table::query();
+        return Table::query()->where('branch_uuid', $this->branch_uuid);
     }
 
     /*
