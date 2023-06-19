@@ -3,21 +3,21 @@
 namespace App\Http\Livewire\Dashboard\Pages\Menu;
 
 use App\Models\Category;
+use App\Models\Dish;
 use Livewire\Component;
+use Livewire\WithPagination;
+use WireUi\Traits\Actions;
 
 class Products extends Component
 {
-    public ?Category $category;
-    public array $dishes;
+    use WithPagination;
 
-    public function getDishes()
-    {
-        $this->dishes = $this->category->dishes()->get()->toArray();
-    }
+    public ?Category $category;
 
     public function render()
     {
-        $this->getDishes();
-        return view('livewire.dashboard.pages.menu.products');
+        return view('livewire.dashboard.pages.menu.products', [
+            'dishes' => $this->category->dishes()->paginate(8),
+        ]);
     }
 }
