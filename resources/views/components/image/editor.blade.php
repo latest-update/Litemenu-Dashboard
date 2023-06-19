@@ -7,7 +7,7 @@
             source: '{{ $imageToEdit }}',
             onSave: (editedImageObject, designState) => {
                 console.log('saved', editedImageObject, designState);
-                window.Livewire.emit('handleBase64Image', editedImageObject.imageBase64, editedImageObject.fullName)
+                window.Livewire.emit('handleBase64Image{{ $alias }}', editedImageObject.imageBase64, editedImageObject.fullName)
             },
             annotationsCommon: {
                 fill: '#fff',

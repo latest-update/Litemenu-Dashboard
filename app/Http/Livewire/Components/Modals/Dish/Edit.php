@@ -4,19 +4,18 @@ namespace App\Http\Livewire\Components\Modals\Dish;
 
 use App\Http\Livewire\Image\MultipleEditorComponent;
 use App\Models\Dish;
+use Illuminate\Support\Facades\Storage;
 
-class Create extends MultipleEditorComponent
+class Edit extends MultipleEditorComponent
 {
     protected $disk = 'dish';
+    public Dish $dish;
     public string $title = '';
     public string $description = '';
     public string $notes = '';
     public string $price = '';
 
     public array $ingredients = [];
-    public array $pictures = [];
-    public int $parentCategory = 0;
-
     public string $optionName = '';
     public string $optionPrice = '';
 
@@ -28,19 +27,31 @@ class Create extends MultipleEditorComponent
     ];
 
     protected $listeners = [
-        'handleBase64ImageCreateDish' => 'handleBase64Image'
+        'editDishUuid',
+        'handleBase64ImageEditDish' => 'handleBase64Image'
     ];
+
+    public function editDishUuid(string $uuid)
+    {
+        $this->dish = Dish::find($uuid);
+        $this->title = $this->dish->title;
+        $this->description = $this->dish->description;
+        $this->notes = $this->dish->notes;
+        $this->price = $this->dish->price;
+        $this->ingredients = $this->dish->ingredients;
+        $this->imageLinks = $this->dish->pictures;
+    }
 
     public function save()
     {
         $dish = $this->validate();
-        unset($dish['photo']);
-        Dish::create([
-            ...$dish,
-            'category_id' => $this->parentCategory,
-            'ingredients' => $this->ingredients,
-            'pictures' => $this->imageLinks,
-        ]);
+        $this->dish->title = $dish['title'];
+        $this->dish->description = $dish['description'];
+        $this->dish->notes = $dish['notes'];
+        $this->dish->price = $dish['price'];
+        $this->dish->ingredients = $this->ingredients;
+        $this->dish->pictures = $this->imageLinks;
+        $this->dish->save();
         return redirect(request()->header('Referer'));
     }
 
@@ -63,6 +74,6 @@ class Create extends MultipleEditorComponent
 
     public function render()
     {
-        return view('livewire.components.modals.dish.create');
+        return view('livewire.components.modals.dish.edit');
     }
 }

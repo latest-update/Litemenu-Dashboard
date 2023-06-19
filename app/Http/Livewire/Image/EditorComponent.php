@@ -37,7 +37,7 @@ class EditorComponent extends Component
 
     protected $listeners = ['handleBase64Image'];
     protected $rules = [
-        'photo' => ['nullable', 'image', 'max:1024', 'mimes:png,jpg']
+        'photo' => ['nullable', 'image', 'max:10240', 'mimes:png,jpg,jpeg']
     ];
     protected array $customRules = [];
 

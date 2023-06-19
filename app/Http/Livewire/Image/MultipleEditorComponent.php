@@ -13,4 +13,10 @@ class MultipleEditorComponent extends EditorComponent
         $this->imageLinks[] = Storage::disk($this->disk)->url($this->subDir . '/' . $filename);
     }
 
+    public function reload(): void
+    {
+        Storage::disk('public')->delete('tmp/' . $this->tempImage);
+        $this->reset('imageLinks');
+    }
+
 }

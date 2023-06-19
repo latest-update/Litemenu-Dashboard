@@ -9,4 +9,5 @@
     </div>
     <livewire:components.modals.catalog.create :parent-category="$parentCategory" wire:key="{{ time() . Str::random(4) }}"/>
     <livewire:components.modals.dish.create :parent-category="$parentCategory" wire:key="{{ time() . Str::random(4) }}"/>
+    <livewire:components.modals.dish.edit wire:key="{{ time() . Str::random(4) }}"/>
 </div>

@@ -1,4 +1,4 @@
-<div class="group relative p-4 border-r border-b border-gray-200 sm:p-6">
+<div class="group relative p-4 border-r border-b border-gray-200 sm:p-6" onclick="Livewire.emit('editDishUuid', '{{ $dish->uuid }}'); $openModal('editDish')">
     <div class="rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
         <img src="{{ $dish->pictures[0] ?? 'https://www.berchielli.co.uk/wp-content/themes/barberry/images/placeholder.jpg' }}" alt="TODO" class="w-full h-full object-center object-cover">
     </div>

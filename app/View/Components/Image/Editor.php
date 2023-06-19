@@ -12,7 +12,8 @@ class Editor extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $imageToEdit
+        public string $imageToEdit,
+        public string $alias = ''
     )
     {
         //

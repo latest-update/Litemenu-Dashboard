@@ -1,4 +1,4 @@
-<x-modal.card title="Add a new dish" max-width="4xl" wire:model.defer="newDish" x-on:close="$wire.reload()">
+<x-modal.card title="Edit a dish" max-width="4xl" wire:model.defer="editDish" x-on:close="$wire.reload()">
     <div class="space-y-8 divide-y divide-gray-200">
         <div>
             <h3 class="text-lg leading-6 font-medium text-gray-900">Add dish images</h3>
@@ -9,7 +9,7 @@
         <div>
             @if ($photo)
                 <div class="flex justify-center bg-white rounded-2xl mb-4">
-                    <x-image.editor alias="CreateDish" image-to-edit="{{ asset($this->saveAndGetImage()) }}" class="max-w-full" />
+                    <x-image.editor alias="EditDish" image-to-edit="{{ asset($this->saveAndGetImage()) }}" class="max-w-full" />
                 </div>
             @else
                 <div class="sm:col-span-6 mt-6">
@@ -32,27 +32,27 @@
             @endif
 
             @if(!empty($imageLinks))
-            <div class="mt-4 flow-root">
-                <div class="-my-2">
-                    <div class="box-content py-2 relative h-80 overflow-x-auto xl:overflow-visible">
-                        <div class="absolute min-w-screen-xl px-4 flex space-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:grid xl:grid-cols-5 xl:gap-x-8">
-                            @foreach($imageLinks as $key => $image)
-                            <a href="#" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
-                                <span aria-hidden="true" class="absolute inset-0">
-                                    <img src="{{ $image }}" alt="" class="w-full h-full object-center object-cover">
-                                </span>
-                                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
-                                <span class="relative mt-auto text-center text-xl font-bold text-white">#{{ ++$key }}</span>
-                            </a>
-                            @endforeach
+                <div class="mt-4 flow-root">
+                    <div class="-my-2">
+                        <div class="box-content py-2 relative h-80 overflow-x-auto xl:overflow-visible">
+                            <div class="absolute min-w-screen-xl px-4 flex space-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:grid xl:grid-cols-5 xl:gap-x-8">
+                                @foreach($imageLinks as $key => $image)
+                                    <a href="#" class="relative w-56 h-80 rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto">
+                                    <span aria-hidden="true" class="absolute inset-0">
+                                        <img src="{{ $image }}" alt="" class="w-full h-full object-center object-cover">
+                                    </span>
+                                        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                                        <span class="relative mt-auto text-center text-xl font-bold text-white">#{{ ++$key }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="flex flex-row-reverse">
-                <x-button label="Reset" wire:click="reload" />
-            </div>
+                <div class="flex flex-row-reverse">
+                    <x-button label="Reset" wire:click="reload" />
+                </div>
             @endif
         </div>
 
@@ -117,9 +117,9 @@
                 <p class="mt-1 text-sm text-gray-500">Induvidual options for each dish (optionally)</p>
             </div>
             @if(count($ingredients) > 0)
-            <div class="flex flex-row space-x-1 mt-6">
-                @foreach($ingredients as $key => $option)
-                    <div class="-m-1 flex flex-wrap items-center">
+                <div class="flex flex-row space-x-1 mt-6">
+                    @foreach($ingredients as $key => $option)
+                        <div class="-m-1 flex flex-wrap items-center">
                         <span class="m-1 inline-flex rounded-full border border-gray-200 items-center py-1.5 pl-3 pr-2 text-sm font-medium bg-white text-gray-900">
                         <span>{{ $option['optionName'] }} - {{ $option['optionPrice'] }} KZT</span>
                             <button wire:click="removeIngredients({{ $key }})" type="button" class="flex-shrink-0 ml-1 h-4 w-4 p-1 rounded-full inline-flex text-gray-400 hover:bg-gray-200 hover:text-gray-500">
@@ -129,9 +129,9 @@
                                 </svg>
                             </button>
                         </span>
-                    </div>
-                @endforeach
-            </div>
+                        </div>
+                    @endforeach
+                </div>
             @endif
             <form class="flex flex-row space-x-2 mt-6" wire:submit.prevent="addIngredient">
                 <x-input left-icon="dots-circle-horizontal" label="Option create" placeholder="Name" wire:model.defer="optionName"/>
