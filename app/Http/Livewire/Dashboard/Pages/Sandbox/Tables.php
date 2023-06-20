@@ -19,7 +19,7 @@ class Tables extends Component
     public function new()
     {
         $this->branch->tables()->create([
-           'internal_id' => 'Table №' . fake()->randomDigit(),
+           'internal_id' => fake()->randomNumber(2),
            'temporary_key' => fake()->uuid()
         ]);
         $this->emit('pg:eventRefresh-default');
