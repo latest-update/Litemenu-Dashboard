@@ -15,11 +15,11 @@ return new class extends Migration
             $table->uuid()->primary();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->uuid('place_uuid')->nullable();
+            $table->uuid('places_uuid')->nullable();
             $table->json('image')->nullable();
             $table->timestamps();
 
-            $table->foreign('place_uuid')->references('uuid')->on('places')->onDelete('cascade');
+            $table->foreign('places_uuid')->references('uuid')->on('places')->onDelete('cascade');
         });
     }
 

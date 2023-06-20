@@ -13,7 +13,11 @@ class Place extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $primaryKey = 'uuid';
+
     protected $guarded = [];
+
+    public $timestamps = false;
 
     public function events(): HasMany
     {

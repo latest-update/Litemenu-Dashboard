@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('size');
             $table->string('name');
             $table->uuid('branch_uuid');
-            $table->timestamps();
 
             $table->foreign('branch_uuid')->references('uuid')->on('branches')->onDelete('cascade');
         });
