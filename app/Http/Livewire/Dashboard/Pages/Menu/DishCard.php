@@ -10,6 +10,8 @@ class DishCard extends Component
     public Dish $dish;
     public int $amount;
     public bool $isActive;
+    public bool $addToElements = false;
+
 
     public function mount()
     {
@@ -23,6 +25,8 @@ class DishCard extends Component
         $this->dish->is_active = $this->isActive;
         $this->dish->save();
     }
+
+
 
     public function render()
     {

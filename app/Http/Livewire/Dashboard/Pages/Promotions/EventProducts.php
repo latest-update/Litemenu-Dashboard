@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard\Pages\Promotions;
 
+use App\Models\Element;
 use App\Models\Event;
 use Livewire\Component;
 
@@ -10,9 +11,14 @@ class EventProducts extends Component
 
     public Event $event;
 
-    public function addElement(string $dishUuid)
-    {
+    protected $listeners = ['addDishToEventUp'];
 
+    public function addDishToEventUp($dishUuid)
+    {
+        Element::create([
+            'dish_uuid' => $dishUuid,
+            'event_uuid' => $this->event->uuid
+        ]);
     }
 
     public function render()

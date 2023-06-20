@@ -12,6 +12,8 @@ class Element extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $primaryKey = 'uuid';
+
     protected $guarded = [];
 
     public function dish(): BelongsTo
