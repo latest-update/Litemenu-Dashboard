@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Branch;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -10,10 +11,16 @@ use PowerComponents\LivewirePowerGrid\Traits\{ActionButton, WithExport};
 use PowerComponents\LivewirePowerGrid\Filters\Filter;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
-final class RecentActivity extends PowerGridComponent
+final class EmployeeTables extends PowerGridComponent
 {
     use ActionButton;
     use WithExport;
+
+    public Branch $branch;
+
+    public string $primaryKey = 'branches.uuid';
+    public string $sortField = 'branches.uuid';
+
 
     /*
     |--------------------------------------------------------------------------
@@ -48,11 +55,21 @@ final class RecentActivity extends PowerGridComponent
     /**
      * PowerGrid datasource.
      *
-     * @return Builder<\App\Models\User>
+     * @return Builder<User>
      */
     public function datasource(): Builder
     {
-        return User::query();
+        return User::query()
+            ->join('accesses', function ($categories) {
+                $categories->on('users.id', '=', 'accesses.user_id');
+            })
+            ->join('branches', function ($branches) {
+                $branches->on('accesses.branch_uuid', '=', 'branches.uuid');
+            })
+            ->select([
+                'users.*',
+                'accesses.position'
+            ]);
     }
 
     /*
@@ -89,7 +106,7 @@ final class RecentActivity extends PowerGridComponent
         return PowerGrid::eloquent()
             ->addColumn('id')
             ->addColumn('fullname')
-
+            ->addColumn('position')
            /** Example of custom column using a closure **/
             ->addColumn('fullname_lower', fn (User $model) => strtolower(e($model->fullname)))
 
@@ -116,6 +133,10 @@ final class RecentActivity extends PowerGridComponent
     {
         return [
 //            Column::make('Id', 'id'),
+            Column::make('Position', 'position')
+                ->sortable()
+                ->searchable(),
+
             Column::make('Fullname', 'fullname')
                 ->sortable()
                 ->searchable(),

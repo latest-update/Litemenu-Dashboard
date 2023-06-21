@@ -11,7 +11,7 @@
         </x-common.grid>
 
         <x-common.table.power-grid name="Staff">
-            <livewire:recent-activity />
+            <livewire:employee-tables />
         </x-common.table.power-grid>
 
         <livewire:components.modals.company.create />

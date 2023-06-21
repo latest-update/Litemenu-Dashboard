@@ -13,6 +13,7 @@ class Start extends Component
     public function mount()
     {
         if (auth()->user()->hasRole(['Manager'])) return redirect()->to('/dashboard');
+        elseif (auth()->user()->hasRole(['Kitchener'])) return redirect()->to('/orders');
     }
 
     public function companies()

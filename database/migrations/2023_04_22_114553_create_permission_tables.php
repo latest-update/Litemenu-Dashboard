@@ -122,6 +122,8 @@ class CreatePermissionTables extends Migration
         Role::create(['name' => 'Administrator']);
         Role::create(['name' => 'Owner']);
         Role::create(['name' => 'Manager']);
+        Role::create(['name' => 'Kitchener']);
+        Role::create(['name' => 'Waiter']);
 
     }
 
