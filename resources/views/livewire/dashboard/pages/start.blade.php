@@ -15,9 +15,9 @@
             @endif
         </x-common.grid>
 
-        <x-common.table.power-grid name="Staff">
-            <livewire:employee-tables />
-        </x-common.table.power-grid>
+{{--        <x-common.table.power-grid name="Staff">--}}
+{{--            <livewire:employee-tables />--}}
+{{--        </x-common.table.power-grid>--}}
 
         <livewire:components.modals.company.create />
     </div>
