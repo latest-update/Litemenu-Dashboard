@@ -18,6 +18,7 @@
 
         </div>
 
+        <livewire:components.modals.subscription />
         <div wire:loading><x-common.loader.spinner /></div>
     </div>
     <x-notifications position="top-right" />

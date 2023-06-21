@@ -15,7 +15,8 @@
             <x-inputs.password wire:model.defer="password" label="Password" placeholder="Your password"/>
             @error('auth') <br>{{ $message }}<br> @enderror
             <br>
-            <div class="flex justify-end w-full">
+            <div class="flex justify-between w-full">
+                <a href="{{ route('login') }}">Login</a>
                 <x-button dark label="Sign up" wire:click="register" />
             </div>
         </div>

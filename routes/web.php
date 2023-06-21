@@ -6,6 +6,7 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dashboard\Pages\Analytics;
 use App\Http\Livewire\Dashboard\Pages\Company\Branches;
 use App\Http\Livewire\Dashboard\Pages\Dashboard;
+use App\Http\Livewire\Dashboard\Pages\Deliver;
 use App\Http\Livewire\Dashboard\Pages\Orders;
 use App\Http\Livewire\Dashboard\Pages\Profile\Preferences;
 use App\Http\Livewire\Dashboard\Pages\Sandbox;
@@ -34,6 +35,7 @@ Route::get('/analytics', Analytics::class)->middleware('auth');
 Route::get('/dashboard', Dashboard::class)->middleware('auth');
 Route::get('/settings', Settings::class)->middleware('auth');
 Route::get('/orders', Orders::class)->middleware('auth');
+Route::get('/deliver', Deliver::class)->middleware('auth');
 
 Route::get('/company/{company:uuid}', Home::class)->middleware('auth');
 Route::get('/company/{company:uuid}/branches', Branches::class)->middleware('auth');

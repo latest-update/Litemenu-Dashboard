@@ -14,6 +14,7 @@ class Start extends Component
     {
         if (auth()->user()->hasRole(['Manager'])) return redirect()->to('/dashboard');
         elseif (auth()->user()->hasRole(['Kitchener'])) return redirect()->to('/orders');
+        elseif (auth()->user()->hasRole(['Waiter'])) return redirect()->to('/deliver');
     }
 
     public function companies()

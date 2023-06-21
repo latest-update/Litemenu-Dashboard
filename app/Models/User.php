@@ -65,6 +65,11 @@ class User extends Authenticatable
         return $this->hasMany(Access::class, 'user_id');
     }
 
+    public function accessBranch()
+    {
+        return $this->belongsToMany(Branch::class, 'accesses');
+    }
+
     public function profileImg(): string
     {
         $filename = "storage/profile/{$this->phone}.png";

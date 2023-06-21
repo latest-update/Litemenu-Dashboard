@@ -11,7 +11,7 @@
                 </div>
                 <div class="min-w-0 flex-1">
                     <div class="text-sm font-medium text-gray-900">
-                        <a href="#">
+                        <a onclick="$openModal('buySubscription')">
                             <span class="absolute inset-0" aria-hidden="true"></span> Marketing Campaign
                         </a>
                     </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="min-w-0 flex-1">
                     <div class="text-sm font-medium text-gray-900">
-                        <a href="#">
+                        <a onclick="$openModal('buySubscription')">
                             <span class="absolute inset-0" aria-hidden="true"></span> Event
                         </a>
                     </div>

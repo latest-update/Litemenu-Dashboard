@@ -6,7 +6,7 @@ use App\Models\Branch;
 use App\Models\User;
 use Livewire\Component;
 
-class Orders extends Component
+class Deliver extends Component
 {
 
     public User $user;
@@ -18,9 +18,8 @@ class Orders extends Component
         $this->user = auth()->user();
         $this->branch = $this->user->accessBranch()->first();
     }
-
     public function render()
     {
-        return view('livewire.dashboard.pages.orders');
+        return view('livewire.dashboard.pages.deliver');
     }
 }

@@ -1,3 +1,7 @@
 <div class="flex flex-col justify-center items-center">
-    <p>Analytics</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $openModal('buySubscription')
+        });
+    </script>
 </div>

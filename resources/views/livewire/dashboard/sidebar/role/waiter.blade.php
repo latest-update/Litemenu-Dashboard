@@ -1,3 +1,3 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-</div>
+<ul class="py-4">
+    <livewire:dashboard.sidebar.item name="To Deliver" icon="view-grid" to="/deliver" />
+</ul>

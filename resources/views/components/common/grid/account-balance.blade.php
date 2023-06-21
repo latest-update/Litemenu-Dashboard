@@ -9,15 +9,15 @@
                 <dl>
                     <dt class="text-sm font-medium text-gray-500 truncate">Account balance</dt>
                     <dd>
-                        <div class="text-lg font-medium text-gray-900">₸30,659.45</div>
+                        <div class="text-lg font-medium text-gray-900">₸0</div>
                     </dd>
                 </dl>
             </div>
         </div>
     </div>
-    <div class="bg-gray-50 px-5 py-3">
+    <div class="bg-gray-50 px-5 py-5">
         <div class="text-sm">
-            <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all </a>
+            <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Manage </a>
         </div>
     </div>
 </div>

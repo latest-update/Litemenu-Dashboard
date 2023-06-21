@@ -12,7 +12,13 @@ class Order extends Model
     use HasFactory;
     use HasUuids;
 
-    protected $guarded = [];
+    protected $primaryKey = 'uuid';
+    protected $fillable = [
+        'phone',
+        'name',
+        'price',
+        'status'
+    ];
 
     public function table(): BelongsTo
     {
