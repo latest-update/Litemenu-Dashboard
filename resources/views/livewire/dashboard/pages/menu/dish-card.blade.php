@@ -51,7 +51,7 @@
         @if(!$addToElements)
         <x-toggle id="toggle_{{ $dish->uuid }}" wire:model="isActive" wire:change="saveChanges" />
         @endif
-        <x-input id="amount_{{ $dish->uuid }}" class="mt-4" wire:model="amount" wire:change="saveChanges" />
+        <x-input type="number" id="amount_{{ $dish->uuid }}" class="mt-4" wire:model="amount" wire:change="saveChanges" />
         <p class="mt-4 text-base font-medium text-gray-900">{{ $dish->price }} KZT</p>
     </div>
 </div>
