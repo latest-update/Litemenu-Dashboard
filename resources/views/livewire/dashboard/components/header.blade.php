@@ -13,15 +13,15 @@
     </div>
     <div class="flex items-center justify-center space-x-6 h-8 mr-4">
         <x-icon name="bell" class="h-6 w-6"/>
-        <x-icon name="chat" class="h-6 w-6"/>
+        <x-icon name="chat" class="h-6 w-6" onclick="$openModal('buySubscription')" />
         <x-dropdown>
             <x-dropdown.header label="Settings">
                 <x-dropdown.item icon="user" label="Profile" wire:click="to('/profile/preferences')" />
-                <x-dropdown.item icon="cog" label="Preferences" />
+                <x-dropdown.item icon="cog" label="Preferences" wire:click="to('/settings')"/>
             </x-dropdown.header>
 
-            <x-dropdown.item separator label="Help Center" />
-            <x-dropdown.item label="Live Chat" />
+            <x-dropdown.item separator label="Help Center" onclick="$openModal('buySubscription')" />
+            <x-dropdown.item label="Live Chat" onclick="$openModal('buySubscription')" />
             <x-dropdown.item label="Logout" wire:click="logout" />
             <x-slot name="trigger"><x-icon name="user-circle" class="h-6 w-6"/></x-slot>
         </x-dropdown>

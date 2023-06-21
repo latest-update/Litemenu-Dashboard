@@ -17,7 +17,7 @@
     </div>
     <div class="bg-gray-50 px-5 py-5">
         <div class="text-sm">
-            <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> Manage </a>
+            <a onclick="$openModal('buySubscription')" class="font-medium text-cyan-700 hover:text-cyan-900 cursor-pointer"> Manage </a>
         </div>
     </div>
 </div>

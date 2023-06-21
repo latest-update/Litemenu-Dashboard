@@ -66,6 +66,6 @@
         </li>
     </ul>
     <div class="mt-6 flex">
-        <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Or start from choosing a template<span aria-hidden="true"> &rarr;</span></a>
+        <a onclick="$openModal('buySubscription')" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Or start from choosing a template<span aria-hidden="true"> &rarr;</span></a>
     </div>
 </div>

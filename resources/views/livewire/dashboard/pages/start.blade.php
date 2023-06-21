@@ -8,10 +8,10 @@
             @foreach($this->companies() as $company)
                 <x-common.grid.company name="{{ $company->name }}" address="{{ $company->address }}" uuid="{{ $company->uuid }}"/>
             @endforeach
-            @if(count($this->companies()) < 3)
+            @if(count($this->companies()) < 1)
                 <x-common.grid.create />
             @else
-                <x-common.grid.disabled-create  onclick="$openModal('buySubscription')"/>
+                <x-common.grid.disabled-create onclick="$openModal('buySubscription')"/>
             @endif
         </x-common.grid>
 
