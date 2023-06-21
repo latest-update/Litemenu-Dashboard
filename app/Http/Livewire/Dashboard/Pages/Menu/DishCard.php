@@ -12,6 +12,9 @@ class DishCard extends Component
     public bool $isActive;
     public bool $addToElements = false;
 
+    protected $rules = [
+        'amount' => ['integer', 'nullable']
+    ];
 
     public function mount()
     {
