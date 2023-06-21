@@ -24,6 +24,7 @@ class DishCard extends Component
 
     public function saveChanges()
     {
+        $this->validate();
         $this->dish->amount = $this->amount;
         $this->dish->is_active = $this->isActive;
         $this->dish->save();
