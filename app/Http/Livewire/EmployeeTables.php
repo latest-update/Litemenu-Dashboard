@@ -66,6 +66,7 @@ final class EmployeeTables extends PowerGridComponent
             ->join('branches', function ($branches) {
                 $branches->on('accesses.branch_uuid', '=', 'branches.uuid');
             })
+            ->where('branches.uuid', '=', $this->branch->uuid)
             ->select([
                 'users.*',
                 'accesses.position'
